@@ -1,12 +1,12 @@
-Top-Down Build:
-1. Header
-- Game Title
-- Start Game Button
-- Current Score, which updates on each successful click, and resets to 0 on bad click
-- Best Score, which is saved as current score goes up, if current score ever surpasses best score, then update best score until it resets to 0
+How To:
+1. Try to click all 8 cards to win the game
+2. Each round the 8 cards will randomly be placed; try to remember which ones you have & haven't clicked
+3. Once you've clicked all 8 cards you win the game.
 
-2. Body
-- Game tiles, show 8 at a time, pull from state, render them randomly 
-- On game tile click, if the card type hasn't been clicked before, update the current score + 1, save to state which card was clicked, if card was clicked reset the current score to 0, check if the best score was saved; if it wasn't save it as best score
-- rerender the page and load another 8 images from state in random order
-- continue until all 8 cards are selected or score was reset at 0
+Tools:
+1. For this project I mainly used React JS, HTML, and CSS.
+
+What I learned:
+1. React isn't as hard as I thought it would be, I can already see the components aspect helping compartmentalize my code more.
+2. I think the useState and useEffect hooks are much easier and cleaner to use than React classes.
+3. React is going to be a really good tool to have as I learn and master it more... I'm starting to see how it allows you to render individual components to save memory and keep an application running smoothly. I'm looking forward to building more with it.
