@@ -1,0 +1,33 @@
+#header {
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#website-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40vw;
+  height: 10vh;
+  margin: 0;
+  font-size: 4em;
+}
+
+#score-container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 20vw;
+  height: 10vh;
+  font-size: 1.5em;
+}
+
+#best-score, #current-score {
+  padding: 2%;
+  margin: 0;
+}

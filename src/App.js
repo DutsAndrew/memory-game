@@ -1,4 +1,4 @@
-import './App.css';
+import './style/App.css';
 import React, { useState, useEffect } from 'react';
 import uniqid from 'uniqid';
 import Header from './components/Header';
@@ -63,7 +63,7 @@ function App() {
 
   const handleClick = (e) => {
     const currentTiles = selectedTiles.tiles;
-    const targetTile = e.target.className;
+    const targetTile = e.target.id;
     setSelectedTiles({
       tiles: [...currentTiles, targetTile],
     });
