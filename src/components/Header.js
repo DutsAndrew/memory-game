@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import '../style/header.css';
 
 const Header = props => {
+  
   const { currentScore, bestScore } = props;
+
   return (
     <div id='header'>
       <p id="website-title">Memory Game</p>
