@@ -14,12 +14,15 @@ function App() {
   });
 
   const updateScore = (amount) => {
+
     if (amount === 0) {
       setCurrentScore({
         score: 0,
       });
       return;
-    } else {
+    }
+
+    if (amount === 1) {
       setCurrentScore({
         score: currentScore.score + 1,
       });
@@ -28,11 +31,26 @@ function App() {
         setBestScore({
           score: bestScore.score + 1,
         });
-      } else if (bestScore.score > currentScore.score) {
-        return;
       }
     }
   }
+
+  // handle and resolve win
+  useEffect(() => {
+    if (currentScore.score === 8 || bestScore.score === 8) {
+      alert('You won, feel free to try again :)');
+
+      setTimeout(() => {
+        setCurrentScore({
+          score: 0,
+        });
+        setBestScore({
+          score: 0,
+        });
+      }, 1000);
+
+    }
+  }, [currentScore, bestScore])
 
   return (
     <div id='content'>
