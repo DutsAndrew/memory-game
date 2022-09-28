@@ -1,67 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import uniqid from 'uniqid';
 import '../style/gameBoard.css';
 
 const GameBoard = props => {
-  const [gameTiles, setGameTiles] = useState([
-    { 
-      name: 'Bastilla',
-      src: '../assets/bastilla.jpg',
-      id: uniqid(),
-    },
-    { 
-      name: 'Bounty Hunter',
-      src: '../assets/bounty-hunter.jpg',
-      id: uniqid(),
-    },
-    {
-      name: 'Darth Malak',
-      src: '../assets/darth-malak.jpg',
-      id: uniqid(),
-    },
-    {
-      name: 'Darth Nihlus',
-      src: '../assets/darth-nihlus.jpg',
-      id: uniqid(),
-    },
-    {
-      name: 'Darth Revan',
-      src: '../assets/darth-revan.png',
-      id: uniqid(),
-    },
-    { 
-      name: 'HK-47',
-      src: '../assets/hk-47.jpg',
-      id: uniqid(),
-    },
-    {
-      name: 'Kotor Characters',
-      src: '../assets/kotor-characters.jpg',
-      id: uniqid(),
-    },
-    {
-      name: 'Kotor Cover',
-      src: '../assets/kotor-cover.jpg',
-      id: uniqid(),
-    },
-  ]);
 
-  const [selectedTiles, setSelectedTiles] = useState({
-    // save previous and current selected images here
-  });
-
+  const { gameTiles, selectedTiles, handleClick } = props;
   const newDeck = buildCardDeck(gameTiles, selectedTiles);
 
-  console.log(newDeck);
+  // console.log(newDeck);
+  // console.log(selectedTiles);
 
   return (
     <div id="game-board">
       <div id="game-tiles">
         <ul>
           {newDeck.map((card) => {
-            return <div key={card.id} >
-              <img src={card.src} alt='star-wars character'></img>
-              {card.name}
+            return <div className={card.name} key={card.id} onClick={handleClick} >
+              <img className={card.name} src={card.src} alt={card.name}></img>
+              <p className={card.name}>{card.name}</p>
             </div>
           })}
         </ul>
@@ -71,13 +26,37 @@ const GameBoard = props => {
 }
 
 function buildCardDeck(gameTiles, selectedTiles) {
-  let searchStatus = false;
-  const builtArray = [];
 
-  if (selectedTiles.length === undefined) {
+  if (selectedTiles.tiles.length === 0) {
     return gameTiles;
+  } else {
+    const randomSet = generateRandomNumberArray(gameTiles);
+    const buildNextDeck = sortNextDeck(gameTiles, randomSet);
+    return buildNextDeck;
   }
-  
+}
+
+function generateRandomNumberArray(gameTiles) {
+  const numbersArray = [];
+  let currentNumber = 0;
+  while (numbersArray.length < 8) {
+    currentNumber = Math.floor(Math.random() * 8);
+    if (numbersArray.includes(currentNumber)) {
+      currentNumber = Math.floor(Math.random() * 8);
+    } else {
+      numbersArray.push(currentNumber);
+    }
+  }
+  return numbersArray;
+}
+
+function sortNextDeck(gameTiles, randomSet) {
+  const nextDeck = [];
+  randomSet.forEach(number => {
+    const matchedTile = gameTiles[number];
+    nextDeck.push(matchedTile);
+  });
+  return nextDeck;
 }
 
 export default GameBoard;
