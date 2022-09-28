@@ -10,12 +10,12 @@ const GameBoard = props => {
   const [gameTiles, setGameTiles] = useState([
     { 
       name: 'Bastilla',
-      src: '../assets/bastilla.jpg',
+      src: './public/assets/bastilla.jpg',
       id: uniqid(),
     },
     { 
       name: 'Bounty Hunter',
-      src: '../assets/bounty-hunter.jpg',
+      src: '../public/assets/bounty-hunter.jpg',
       id: uniqid(),
     },
     {
