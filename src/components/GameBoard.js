@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { cardDeckController } from '../scripts/game-board-helpers';
 import uniqid from 'uniqid';
 import '../style/gameBoard.css';
-import { cardDeckController } from '../scripts/game-board-helpers';
+
+import bastilla from '../assets/bastilla.jpg';
+import bountyHunter from '../assets/bounty-hunter.jpg';
+import darthMalak from '../assets/darth-malak.jpg';
+import darthNihlus from '../assets/darth-nihlus.jpg';
+import darthRevan from '../assets/darth-revan.png';
+import hk47 from '../assets/hk-47.jpg';
+import kotorCharacters from '../assets/kotor-characters.jpg';
+import kotorCover from '../assets/kotor-cover.jpg';
 
 const GameBoard = props => {
 
@@ -10,42 +19,42 @@ const GameBoard = props => {
   const [gameTiles, setGameTiles] = useState([
     { 
       name: 'Bastilla',
-      src: './public/assets/bastilla.jpg',
+      src: bastilla,
       id: uniqid(),
     },
     { 
       name: 'Bounty Hunter',
-      src: '../public/assets/bounty-hunter.jpg',
+      src: bountyHunter,
       id: uniqid(),
     },
     {
       name: 'Darth Malak',
-      src: '../assets/darth-malak.jpg',
+      src: darthMalak,
       id: uniqid(),
     },
     {
       name: 'Darth Nihlus',
-      src: '../assets/darth-nihlus.jpg',
+      src: darthNihlus,
       id: uniqid(),
     },
     {
       name: 'Darth Revan',
-      src: '../assets/darth-revan.png',
+      src: darthRevan,
       id: uniqid(),
     },
     { 
       name: 'HK-47',
-      src: '../assets/hk-47.jpg',
+      src: hk47,
       id: uniqid(),
     },
     {
       name: 'Kotor Characters',
-      src: '../assets/kotor-characters.jpg',
+      src: kotorCharacters,
       id: uniqid(),
     },
     {
       name: 'Kotor Cover',
-      src: '../assets/kotor-cover.jpg',
+      src: kotorCover,
       id: uniqid(),
     },
   ]);
